@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Random Nama Kelompok</title>
 </head>
 
@@ -13,11 +13,11 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#">Berdasarkan Jumlah Kelompok</a></li>
+                <li><a href="../index.html">Berdasarkan Jumlah Kelompok</a></li>
                 <li><a>|</a></li>
-                <li><a href="berdasarkan anggota/berdasarkan-anggota.html">Berdasarkan Jumlah Anggota</a></li>
+                <li><a href="../berdasarkan anggota/berdasarkan-anggota.html">Berdasarkan Jumlah Anggota</a></li>
                 <li><a>|</a></li>
-                <li><a href="berdasarkan gender/berdasarkan-gender.html">Berdasarkan Jenis Kelamin</a></li>
+                <li><a href="#">Berdasarkan Jenis Kelamin</a></li>
                 </li>
             </ul>
         </div>
@@ -30,9 +30,13 @@
             <input type="number" id="numberOfGroups" name="numberOfGroups" placeholder="Masukkan jumlah kelompok"
                 required><br>
 
-            <label for="nameList"><b>Daftar Nama</b></label>
-            <textarea id="nameList" name="nameList" rows="4" placeholder="Pisahkan nama dengan koma atau baris baru"
+            <label for="maleNames"><b>Daftar Nama Laki-Laki</b></label>
+            <textarea id="maleNames" name="maleNames" rows="4" placeholder="Pisahkan nama dengan koma atau baris baru"
                 required></textarea><br>
+
+            <label for="femaleNames"><b>Daftar Nama Perempuan</b></label>
+            <textarea id="femaleNames" name="femaleNames" rows="4"
+                placeholder="Pisahkan nama dengan koma atau baris baru" required></textarea><br>
 
             <button type="button" onclick="generateGroups()">Generate</button>
         </form>
@@ -42,7 +46,7 @@
         <div class="inner-result" id="result"></div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="bg.js"></script>
 </body>
 
 </html>

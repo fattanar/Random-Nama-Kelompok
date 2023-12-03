@@ -1,20 +1,16 @@
-// Kelompok
-
 function generateGroups() {
-    const numberOfGroups = document.getElementById('numberOfGroups').valueAsNumber;
+    const numberOfMembers = document.getElementById('numberOfMembers').valueAsNumber;
     const nameList = document.getElementById('nameList').value.split(/[\n,]+/).map(name => name.trim());
 
-    if (isNaN(numberOfGroups) || numberOfGroups <= 0 || nameList.length === 0) {
-        alert('Masukkan jumlah kelompok yang valid dan daftar nama tidak boleh kosong.');
+    if (isNaN(numberOfMembers) || numberOfMembers <= 0 || nameList.length === 0) {
+        alert('Masukkan jumlah anggota per kelompok yang valid, dan daftar nama tidak boleh kosong.');
         return;
     }
 
     const totalNames = nameList.length;
-    const numberOfPeoplePerGroup = Math.floor(totalNames / numberOfGroups);
-    let remainder = totalNames % numberOfGroups;
 
-    if (totalNames < numberOfGroups) {
-        alert('Jumlah nama terlalu sedikit untuk jumlah kelompok yang diminta.');
+    if (totalNames < numberOfMembers) {
+        alert('Jumlah nama terlalu sedikit untuk anggota per kelompok yang diminta.');
         return;
     }
 
@@ -22,21 +18,14 @@ function generateGroups() {
     const resultContainer = document.getElementById('result');
     resultContainer.innerHTML = '';
 
-    for (let group = 1; group <= numberOfGroups; group++) {
+    let group = 1;
+
+    while (availableNames.length >= numberOfMembers) {
         const groupDiv = document.createElement('div');
-        groupDiv.className = "result-item"
+        groupDiv.className = 'result-item';
         groupDiv.innerHTML = `<h2>Kelompok ${group}:</h2>`;
 
-        // Tentukan jumlah orang dalam kelompok
-        let peopleInGroup = numberOfPeoplePerGroup;
-
-        // Jika masih ada sisa, tambahkan satu orang untuk beberapa kelompok
-        if (remainder > 0) {
-            peopleInGroup++;
-            remainder--;
-        }
-
-        for (let i = 0; i < peopleInGroup; i++) {
+        for (let i = 0; i < numberOfMembers; i++) {
             const randomIndex = Math.floor(Math.random() * availableNames.length);
             const randomFirstName = availableNames[randomIndex];
             availableNames.splice(randomIndex, 1);
@@ -47,10 +36,23 @@ function generateGroups() {
         }
 
         resultContainer.appendChild(groupDiv);
+        group++;
+    }
+
+    // Check if there are remaining names to create an additional group
+    if (availableNames.length > 0) {
+        const groupDiv = document.createElement('div');
+        groupDiv.innerHTML = `<h2>Kelompok ${group}:</h2>`;
+
+        for (const remainingName of availableNames) {
+            const nameParagraph = document.createElement('p');
+            nameParagraph.textContent = remainingName;
+            groupDiv.appendChild(nameParagraph);
+        }
+
+        resultContainer.appendChild(groupDiv);
     }
 }
-
-// Waktu
 
 function showCurrentDateTime() {
     const currentDate = new Date();
