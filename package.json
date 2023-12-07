@@ -1,0 +1,22 @@
+{
+  "name": "random-nama-kelompok",
+  "version": "1.0.0",
+  "description": "Random Nama Kelompok",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fattanar/random-nama-kelompok.git"
+  },
+  "keywords": [
+    "random-nama-kelompok"
+  ],
+  "author": "fattan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fattanar/random-nama-kelompok/issues"
+  },
+  "homepage": "https://github.com/fattanar/random-nama-kelompok#readme"
+}
